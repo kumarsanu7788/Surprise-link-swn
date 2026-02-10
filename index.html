@@ -2,93 +2,141 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Valentine Week for my Love ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine Week for My Love ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins&display=swap" rel="stylesheet">
+
 <style>
+html{scroll-behavior:smooth}
 
 body{
-
-    margin:0;
-
-    font-family:'Segoe UI',sans-serif;
-
-    background:linear-gradient(135deg,#ff758c,#ff7eb3);
-
-    color:white;
-
+ margin:0;
+ font-family:'Poppins',sans-serif;
+ background:linear-gradient(135deg,#ff758c,#ff7eb3);
+ color:white;
+ overflow-x:hidden;
 }
 
-section{
-
-    min-height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    padding:40px 20px;
-
+/* Floating Symbols */
+.symbol{
+ position:fixed;
+ bottom:-30px;
+ font-size:22px;
+ animation:float 10s linear infinite;
+ opacity:.7;
+}
+@keyframes float{
+ from{transform:translateY(0);opacity:0}
+ to{transform:translateY(-130vh);opacity:1}
 }
 
-.card{
-
-    background:rgba(255,255,255,0.2);
-
-    padding:30px;
-
-    border-radius:20px;
-
-    max-width:420px;
-
-}
-
-h1{font-size:34px;margin-bottom:10px;}
-
-p{font-size:18px;line-height:1.6;}
-
+/* Navigation */
 .nav{
-
-    position:fixed;
-
-    top:10px;
-
-    width:100%;
-
-    text-align:center;
-
+ position:fixed;top:10px;width:100%;
+ text-align:center;z-index:10;
 }
-
 .nav a{
-
-    margin:5px;
-
-    text-decoration:none;
-
-    color:white;
-
-    background:rgba(0,0,0,0.25);
-
-    padding:8px 12px;
-
-    border-radius:20px;
-
-    font-size:14px;
-
+ margin:4px;padding:8px 12px;
+ background:rgba(0,0,0,.3);
+ border-radius:20px;
+ text-decoration:none;color:#fff;
+ font-size:14px;
 }
 
-.footer{
+/* Section */
+section{
+ min-height:100vh;
+ display:flex;align-items:center;justify-content:center;
+ padding:40px 15px;text-align:center;
+}
 
-    margin-top:20px;
+/* Card */
+.card{
+ background:rgba(255,255,255,.25);
+ padding:30px;
+ border-radius:25px;
+ max-width:450px;width:100%;
+ transform:scale(.85);
+ opacity:0;
+ animation:zoomIn 1.2s ease forwards;
+}
+@keyframes zoomIn{
+ to{transform:scale(1);opacity:1}
+}
 
-    font-size:18px;
+h1{
+ font-family:'Dancing Script',cursive;
+ font-size:36px;
+}
 
+p{font-size:17px;line-height:1.6}
+
+/* Name beat */
+.name{
+ font-size:21px;
+ animation:beat 1.4s infinite;
+}
+@keyframes beat{
+ 0%{transform:scale(1)}
+ 50%{transform:scale(1.1)}
+ 100%{transform:scale(1)}
+}
+
+/* Secret Button */
+.secret-btn{
+ margin-top:20px;
+ padding:12px 24px;
+ border:none;
+ border-radius:30px;
+ background:#ff2f68;
+ color:white;
+ font-size:16px;
+ cursor:pointer;
+ box-shadow:0 8px 20px rgba(0,0,0,.3);
+ transition:.3s;
+}
+.secret-btn:hover{
+ transform:scale(1.1);
+}
+
+/* Music hint */
+.music-hint{
+ position:fixed;
+ bottom:15px;left:50%;
+ transform:translateX(-50%);
+ background:rgba(0,0,0,.35);
+ padding:8px 16px;
+ border-radius:20px;
+ font-size:14px;
+ z-index:20;
+}
+
+/* Responsive */
+@media(max-width:480px){
+ h1{font-size:30px}
+ p{font-size:16px}
 }
 </style>
 </head>
-<body>
+
+<body onclick="startMusic()">
+
+<!-- Music -->
+<audio id="bgMusic" loop>
+  <source src="love.mp3" type="audio/mpeg">
+</audio>
+
+<div class="music-hint">🎵 Tap anywhere to feel the love</div>
+
+<!-- Floating Symbols -->
+<div class="symbol" style="left:5%">❤️</div>
+<div class="symbol" style="left:20%;animation-delay:2s">💖</div>
+<div class="symbol" style="left:40%;animation-delay:4s">💕</div>
+<div class="symbol" style="left:60%;animation-delay:1s">💘</div>
+<div class="symbol" style="left:80%;animation-delay:3s">🌹</div>
+
+<!-- Navigation -->
 <div class="nav">
 <a href="#rose">🌹</a>
 <a href="#propose">💍</a>
@@ -98,82 +146,175 @@ p{font-size:18px;line-height:1.6;}
 <a href="#hug">🤗</a>
 <a href="#kiss">😘</a>
 </div>
+
+<!-- Rose Day -->
 <section id="rose">
 <div class="card">
-<h1>🌹 Rose Day</h1>
+<h1>🌹 Rose Day – 7 Feb</h1>
 <p>
+Like a rose 🌹<br>
+You make my life beautiful 💫<br><br>
 
-Megha,<br>
+Your smile is the color of my happiness 😊<br>
+Your love is the fragrance of my soul 💖<br><br>
 
-Just like a rose,<br>
+Every petal reminds me of you,<br>
+soft, pure, and full of love 💕<br><br>
 
-you fill my life with love, beauty & happiness 🌹
+Today I give you this rose,<br>
+but my heart is yours forever ♾️
 </p>
-<p><b>— Savan ❤️</b></p>
+<p class="name">— only yours ❤️</p>
 </div>
 </section>
+
+<!-- Propose Day -->
 <section id="propose">
 <div class="card">
-<h1>💍 Propose Day</h1>
+<h1>💍 Propose Day – 8 Feb</h1>
 <p>
+My heart beats only for you meri jaan💓<br>
+Every beat whispers your name 🥺❤️<br><br>
 
-Megha,<br>
+I don’t promise a perfect life,<br>
+but I promise a real love 💞<br>
+a hand to hold 🤝<br>
+and a heart that chooses you every day 💖<br><br>
 
-I don’t need a special day to say this,<br>
-
-but today I want to promise my heart to you 💍<br>
-
-Will you always be mine?
+So today, with all my love and courage,<br>
+I ask you this 💍<br>
+Will you be mine forever? ♾️
 </p>
-<p><b>— Savan ❤️</b></p>
+<p class="name">— only yours ❤️</p>
 </div>
 </section>
+
+<!-- Chocolate Day -->
 <section id="chocolate">
 <div class="card">
-<h1>🍫 Chocolate Day</h1>
+<h1>🍫 Chocolate Day – 9 Feb</h1>
 <p>
+Your smile is sweeter than chocolate 🍫<br>
+and warmer than my favorite memories 💖<br><br>
 
-Just like chocolate is sweet,<br>
+Just like chocolate melts slowly,<br>
+my heart melts every time I see you 🥺💕<br><br>
 
-your smile melts my heart every day 🍫<br>
+Life with you tastes perfect,<br>
+full of sweetness, love, and endless smiles ✨<br><br>
 
-Life feels sweeter with you.
+No matter how bitter the day gets,<br>
+your love makes everything sweet again 💝
 </p>
-<p><b>— Savan ❤️</b></p>
+<p class="name">— only yours ❤️</p>
 </div>
 </section>
+
+<!-- Teddy Day -->
 <section id="teddy">
 <div class="card">
-<h1>🧸 Teddy Day</h1>
+<h1>🧸 Teddy Day – 10 Feb</h1>
 <p>
+If I were a teddy 🧸<br>
+I’d hug you forever 🤍<br><br>
 
-If I could,<br>
+I’d be there on your happy days 😊<br>
+and even closer on your sad ones 🥺<br><br>
 
-I’d become your teddy 🧸<br>
+Whenever you feel lonely or tired,<br>
+hold me tight and feel my love 💞<br><br>
 
-to hug you, comfort you,<br>
-
-and stay with you forever.
+Just like a teddy never leaves your side,<br>
+I promise I never will ♾️
 </p>
-<p><b>— Savan ❤️</b></p>
+<p class="name">— only yours ❤️</p>
 </div>
 </section>
+
+<!-- Promise Day -->
 <section id="promise">
 <div class="card">
-<h1>please wait ........</h1>
-</div>
-</section>
-<section id="hug">
-<div class="card">
-<h1>please wait ........</h1>
-</div>
-</section>
-<section id="kiss">
-<div class="card">
-<h1>please wait ........</h1>
+<h1>🤝 Promise Day – 11 Feb</h1>
+<p>
+I promise to love you 💖<br>
+not only on happy days,<br>
+but even when life gets tough 🌧️<br><br>
+
+I promise to protect your smile 😊<br>
+respect your dreams ✨<br>
+and stand by you in every storm 🛡️<br><br>
+
+I don’t promise perfection,<br>
+but I promise honesty, loyalty,<br>
+and a heart that never gives up on you ♾️
+</p>
+<p class="name">— only yours ❤️</p>
 
 </div>
 </section>
+
+<!-- Hug Day -->
+<section id="hug">
+<div class="card">
+<h1>🤗 Hug Day – 12 Feb</h1>
+<p>
+My arms will always be your safe place 🏡<br>
+where all your worries slowly disappear 🌙<br><br>
+
+Whenever you feel tired or broken,<br>
+come closer and feel my heartbeat 💓<br><br>
+
+In my hug, you’ll find peace,<br>
+strength, and endless love 💞<br><br>
+
+No matter where life takes us,<br>
+my embrace will always find you ♾️
+</p>
+<p class="name">— only yours ❤️</p>
+
+</div>
+</section>
+
+<!-- Kiss Day -->
+<section id="kiss">
+<div class="card">
+<h1>😘 Kiss Day – 13 Feb</h1>
+<p>One kiss 💋 One promise 💍 One forever ♾️</p>
+<button class="secret-btn" onclick="openSecret()">❤️ Open My Secret ❤️</button>
+<p class="name">— only yours ❤️</p>
+</div>
+</section>
+
+<!-- SECRET VALENTINE PAGE -->
+<section id="secret" style="display:none">
+<div class="card">
+<h1>💖 Valentine’s Day – 14 Feb 💖</h1>
+<p>
+This day is special 🌹<br><br>
+Because **YOU** are special sweetheart💫<br><br>
+I don’t need a reason to love you,<br>
+I just need **YOU** 🥺❤️<br><br>
+Forever & Always ♾️
+</p>
+<p class="name">— Yours, Savan 💞</p>
+</div>
+</section>
+
+<script>
+let started=false;
+function startMusic(){
+ if(!started){
+   document.getElementById("bgMusic").play();
+   document.querySelector(".music-hint").style.display="none";
+   started=true;
+ }
+}
+
+function openSecret(){
+ document.getElementById("secret").style.display="flex";
+ location.href="#secret";
+}
+</script>
+
 </body>
 </html>
- 
